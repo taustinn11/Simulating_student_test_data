@@ -75,19 +75,19 @@ df_cor <- df %>%
     ifelse(x > 100, 100, x))) %>% #this will cap scores at 100 if the rnorm function pushes them above 100
   
   mutate(test2_scores = ifelse(heart_model == "yes", 
-                               yes = test1_scores + rnorm(1, -10, 5), #Test scores will only drop by 10 points with the heart model
-                               no = test1_scores + rnorm(1, -20, 5))) #Test scores will drop by 15 points for no heart model
+                               yes = test1_scores + rnorm(25, -10, 5), #Test scores will only drop by 10 points with the heart model
+                               no = test1_scores + rnorm(25, -20, 5))) #Test scores will drop by 15 points for no heart model
 
 head(df_cor)
 ```
 
     ##   student_id heart_model test1_scores test2_scores
     ## 1          1         yes     62.79149     52.57806
-    ## 2          2         yes    100.00000     89.78658
-    ## 3          3         yes     70.64883     60.43541
-    ## 4          4         yes     71.19992     60.98650
-    ## 5          5         yes     55.03537     44.82194
-    ## 6          6         yes     80.91556     70.70213
+    ## 2          2         yes    100.00000     89.43665
+    ## 3          3         yes     70.64883     62.93297
+    ## 4          4         yes     71.19992     71.30160
+    ## 5          5         yes     55.03537     39.78092
+    ## 6          6         yes     80.91556     74.58882
 
 # Plotting the data
 
@@ -171,10 +171,10 @@ df_cor %>%
     ## Warning: Converting "heart_model" to factor for ANOVA.
 
     ## $ANOVA
-    ##             Effect DFn DFd            F            p p<.05       ges
-    ## 2      heart_model   1  48 2.754651e+01 3.441394e-06     * 0.3646298
-    ## 3             test   1  48 3.124405e+17 0.000000e+00     * 0.3005450
-    ## 4 heart_model:test   1  48 3.533424e+16 0.000000e+00     * 0.0463416
+    ##             Effect DFn DFd         F            p p<.05        ges
+    ## 2      heart_model   1  48  29.76708 1.679645e-06     * 0.37550009
+    ## 3             test   1  48 592.02132 1.192361e-28     * 0.27284414
+    ## 4 heart_model:test   1  48  95.70919 5.166872e-13     * 0.05719093
 
 ## Consider the Results
 
@@ -253,16 +253,16 @@ no
 test2\_scores
 </td>
 <td style="text-align:right;">
-47.93097
+48.02817
 </td>
 <td style="text-align:right;">
-11.67543
+11.40422
 </td>
 <td style="text-align:right;">
-53.93438
+46.91777
 </td>
 <td style="text-align:right;">
-79.43665
+73.62970
 </td>
 </tr>
 <tr>
@@ -293,16 +293,16 @@ yes
 test2\_scores
 </td>
 <td style="text-align:right;">
-70.89000
+72.37550
 </td>
 <td style="text-align:right;">
-12.27680
+13.20723
 </td>
 <td style="text-align:right;">
-44.96463
+59.98961
 </td>
 <td style="text-align:right;">
-89.78658
+99.77053
 </td>
 </tr>
 </tbody>

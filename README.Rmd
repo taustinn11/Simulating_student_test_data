@@ -57,8 +57,8 @@ df_cor <- df %>%
     ifelse(x > 100, 100, x))) %>% #this will cap scores at 100 if the rnorm function pushes them above 100
   
   mutate(test2_scores = ifelse(heart_model == "yes", 
-                               yes = test1_scores + rnorm(1, -10, 5), #Test scores will only drop by 10 points with the heart model
-                               no = test1_scores + rnorm(1, -20, 5))) #Test scores will drop by 15 points for no heart model
+                               yes = test1_scores + rnorm(25, -10, 5), #Test scores will only drop by 10 points with the heart model
+                               no = test1_scores + rnorm(25, -20, 5))) #Test scores will drop by 15 points for no heart model
 
 head(df_cor)
 ```
